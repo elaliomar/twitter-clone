@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "641936521185",
+    "project_id": "react-native-ass6",
+    "storage_bucket": "react-native-ass6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641936521185:android:bf5ce4962de99048f444a0",
+        "android_client_info": {
+          "package_name": "com.ass6"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWR5uPXv5A35cwYKw7kmATBNjdUK7ye6Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
