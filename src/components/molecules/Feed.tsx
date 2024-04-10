@@ -70,6 +70,8 @@ const Feed = () => {
         image_url={item.image_url}
         content={item.content}
         date={item.date}
+        userEmail={item.userEmail}
+        userId={item.userId}
       />
     );
   };

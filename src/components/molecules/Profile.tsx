@@ -6,6 +6,7 @@ import {userServerData} from '../../types/userServerData';
 import {getUserData} from '../../utils/fireStoreUtils';
 import {useSelector} from 'react-redux';
 import CreatingPost from './CreatingPost';
+import {onDisplayNotification} from '../../utils/localNotification';
 
 const Profile = () => {
   const [selectedImage, setSelectedImage] = useState<imagePath>(null);
@@ -64,6 +65,7 @@ const Profile = () => {
         <View style={styles.userDataView}>
           <Text style={styles.username}>{userData?.username}</Text>
           <Text style={styles.email}>{`${userEmail}`}</Text>
+          <Text style={styles.userid}>{`${userId}`}</Text>
         </View>
         <View style={styles.buttonView}>
           <Pressable style={styles.pressebaleStyle} onPress={handleImagePicker}>
@@ -108,6 +110,11 @@ const styles = StyleSheet.create({
   email: {
     color: 'gray',
     fontWeight: '300',
+  },
+  userid: {
+    color: 'gray',
+    fontWeight: '300',
+    paddingVertical: 10,
   },
   buttonView: {
     flexDirection: 'row',

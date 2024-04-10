@@ -3,12 +3,20 @@ import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {TweetData} from '../../types/tweetTypes';
 import {useNavigation} from '@react-navigation/native';
+import {TabStackParamList} from '../../types/tabTypes';
+import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import {onDisplayNotification} from '../../utils/localNotification';
+import TweetFooter from './TweetFooter';
 
 const Tweet = ({id, username, image_url, content, date}: TweetData) => {
   const [imageValue, setImageValue] = useState(image_url);
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<BottomTabNavigationProp<TabStackParamList, 'Post'>>();
   const handlePress = () => {
-    navigation.navigate('Post');
+    navigation.navigate('Post', {
+      postId: id,
+    });
   };
   return (
     <Pressable onPress={handlePress}>

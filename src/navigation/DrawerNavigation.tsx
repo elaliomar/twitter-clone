@@ -13,6 +13,7 @@ const Drawer = createDrawerNavigator();
 const DrawerNavigation = () => {
   return (
     <Drawer.Navigator
+      initialRouteName="Home"
       drawerContent={props => <CustomDrawer {...props} />}
       screenOptions={{headerShown: false}}>
       <Drawer.Screen
@@ -26,7 +27,7 @@ const DrawerNavigation = () => {
         }}
       />
       <Drawer.Screen
-        name="Help Center"
+        name="Help"
         component={HelpCenterScreen}
         options={{
           drawerActiveTintColor: '#00b0f0',

@@ -4,21 +4,19 @@ import ProfileScreen from '../screens/ProfileScreen';
 import FeedScreen from '../screens/FeedScreen';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AvatarHeader from '../components/atoms/AvatarHeader';
-import Post from '../screens/Post';
+import PostScreen from '../screens/PostScreen';
 
 const Tab = createBottomTabNavigator();
 
 const TabNavigation = () => {
   return (
-    <Tab.Navigator
-      screenOptions={{
-        headerTitleAlign: 'center',
-        headerLeft: () => <AvatarHeader />,
-      }}>
+    <Tab.Navigator initialRouteName="Feed">
       <Tab.Screen
         name="Feed"
         component={FeedScreen}
         options={{
+          headerTitleAlign: 'center',
+          headerLeft: () => <AvatarHeader />,
           tabBarShowLabel: false,
           tabBarActiveTintColor: '#00b0f0',
           tabBarIcon: ({color}) => <Icon name="feed" size={30} color={color} />,
@@ -26,7 +24,7 @@ const TabNavigation = () => {
       />
       <Tab.Screen
         name="Post"
-        component={Post}
+        component={PostScreen}
         options={{
           tabBarButton: () => null,
           title: 'Post',
@@ -36,6 +34,8 @@ const TabNavigation = () => {
         name="Profile"
         component={ProfileScreen}
         options={{
+          headerTitleAlign: 'center',
+          headerLeft: () => <AvatarHeader />,
           tabBarShowLabel: false,
           tabBarActiveTintColor: '#00b0f0',
           tabBarIcon: ({color}) => <Icon name="user" size={30} color={color} />,

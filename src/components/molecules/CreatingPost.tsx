@@ -4,10 +4,13 @@ import Feather from 'react-native-vector-icons/Feather';
 import CustomInputText from '../atoms/CustomInputText';
 import {CreatingPostProps} from '../../types/creatingPostProps';
 import axios from 'axios';
+import {useSelector} from 'react-redux';
 
 const CreatingPost: React.FC<CreatingPostProps> = ({username, imagePath}) => {
   const [isVisible, setIsVisible] = useState(false);
   const [tweet, setTweet] = useState('');
+  const userId = useSelector((state: any) => state.auth.userId);
+  const userEmail = useSelector((state: any) => state.auth.userEmail);
   const handleSubmitData = async () => {
     const currentDate = new Date();
     const formattedDate = currentDate.toLocaleDateString('en-US', {
@@ -21,6 +24,8 @@ const CreatingPost: React.FC<CreatingPostProps> = ({username, imagePath}) => {
       image_url: imagePath,
       content: tweet,
       date: formattedDate,
+      userEmail: userEmail,
+      userId: userId,
     };
 
     const API_URL = 'https://artisanlb.net/post.php';

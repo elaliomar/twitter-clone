@@ -5,4 +5,6 @@ export interface TweetData {
     image_url: imagePath;
     content: string;
     date: string;
+    userEmail:string,
+    userId:string
   }
