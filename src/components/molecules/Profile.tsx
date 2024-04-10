@@ -71,7 +71,7 @@ const Profile = () => {
           </Pressable>
         </View>
       </View>
-      <CreatingPost />
+      <CreatingPost username={userData?.username} imagePath={selectedImage} />
     </>
   );
 };

@@ -1,19 +1,43 @@
-import {
-  Pressable,
-  StyleSheet,
-  Modal,
-  Text,
-  View,
-  TextInput,
-} from 'react-native';
+import {Pressable, StyleSheet, Modal, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import Feather from 'react-native-vector-icons/Feather';
 import CustomInputText from '../atoms/CustomInputText';
+import {CreatingPostProps} from '../../types/creatingPostProps';
+import axios from 'axios';
 
-const CreatingPost = () => {
+const CreatingPost: React.FC<CreatingPostProps> = ({username, imagePath}) => {
   const [isVisible, setIsVisible] = useState(false);
   const [tweet, setTweet] = useState('');
-  console.log(tweet);
+  const handleSubmitData = async () => {
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+    console.log(formattedDate);
+    const postData = {
+      username: username,
+      image_url: imagePath,
+      content: tweet,
+      date: formattedDate,
+    };
+
+    const API_URL = 'https://artisanlb.net/post.php';
+    try {
+      const response = await axios.post(API_URL, postData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      console.log(JSON.stringify(postData));
+      console.log('Data posted successfully:', response.data);
+    } catch (error) {
+      console.log(error);
+    }
+    setTweet('');
+    setIsVisible(false);
+  };
   return (
     <>
       <Pressable
@@ -35,7 +59,9 @@ const CreatingPost = () => {
               <Feather name="x" size={24} color={'black'} />
             </Pressable>
             {tweet && (
-              <Pressable style={styles.postPressebale}>
+              <Pressable
+                style={styles.postPressebale}
+                onPress={handleSubmitData}>
                 <Text style={styles.postButton}>Post</Text>
               </Pressable>
             )}

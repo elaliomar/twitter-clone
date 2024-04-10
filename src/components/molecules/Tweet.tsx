@@ -1,26 +1,50 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
-import {tweetProp} from '../../types/tweetTypes';
+import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
+import React, {useState} from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {TweetData} from '../../types/tweetTypes';
+import {useNavigation} from '@react-navigation/native';
 
-const Tweet = ({tweet}: tweetProp) => {
+const Tweet = ({id, username, image_url, content, date}: TweetData) => {
+  const [imageValue, setImageValue] = useState(image_url);
+  const navigation = useNavigation();
+  const handlePress = () => {
+    navigation.navigate('Post');
+  };
   return (
-    <View style={styles.container}>
-      <Image
-        source={require('../../assets/Guest-user.png')}
-        style={styles.imageStyle}
-      />
-      <View style={styles.mainContainer}>
-        <View style={styles.secondContainer}>
-          <Text style={styles.name}>{tweet.user.name}</Text>
-          <Text style={styles.time}> · 2h</Text>
+    <Pressable onPress={handlePress}>
+      <View style={styles.container}>
+        {imageValue === '' ? (
+          <Image
+            source={require('../../assets/Guest-user.png')}
+            style={styles.imageStyle}
+          />
+        ) : (
+          <Image
+            source={{uri: `file://${image_url}`}}
+            style={styles.imageStyle}
+          />
+        )}
+        <View style={styles.mainContainer}>
+          <View style={styles.secondContainer}>
+            <Text style={styles.name}>{username}</Text>
+            <Text style={styles.time}> · {date}</Text>
+          </View>
+          <Text style={styles.content}>{content}</Text>
+          <View style={styles.footer}>
+            <Pressable>
+              <Icon name="share" size={20} color="gray" />
+            </Pressable>
+            <Pressable>
+              <Icon name="retweet" size={20} color="gray" />
+            </Pressable>
+          </View>
         </View>
-        <Text style={styles.content}>{tweet.content}</Text>
       </View>
-    </View>
+    </Pressable>
   );
 };
 
-export default Tweet;
+export default React.memo(Tweet);
 
 const styles = StyleSheet.create({
   container: {
@@ -41,10 +65,12 @@ const styles = StyleSheet.create({
   },
   name: {
     fontWeight: '600',
+    color: 'black',
   },
   content: {
     lineHeight: 20,
     marginTop: 5,
+    color: 'black',
   },
   secondContainer: {
     flexDirection: 'row',
@@ -52,5 +78,12 @@ const styles = StyleSheet.create({
   time: {
     color: 'gray',
     marginLeft: 5,
+  },
+  footer: {
+    flexDirection: 'row',
+    marginTop: 10,
+    marginBottom: 5,
+    justifyContent: 'space-around',
+    alignItems: 'center',
   },
 });

@@ -2,9 +2,9 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import ProfileScreen from '../screens/ProfileScreen';
 import FeedScreen from '../screens/FeedScreen';
-import RetweetScreen from '../screens/RetweetScreen';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AvatarHeader from '../components/atoms/AvatarHeader';
+import Post from '../screens/Post';
 
 const Tab = createBottomTabNavigator();
 
@@ -25,14 +25,11 @@ const TabNavigation = () => {
         }}
       />
       <Tab.Screen
-        name="Retweet posts"
-        component={RetweetScreen}
+        name="Post"
+        component={Post}
         options={{
-          tabBarShowLabel: false,
-          tabBarActiveTintColor: '#00b0f0',
-          tabBarIcon: ({color}) => (
-            <Icon name="retweet" size={30} color={color} />
-          ),
+          tabBarButton: () => null,
+          title: 'Post',
         }}
       />
       <Tab.Screen
