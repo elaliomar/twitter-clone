@@ -1,11 +1,12 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {StyleSheet, Text, useColorScheme, View} from 'react-native';
+import {StyleSheet, useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import MainNavigation from './src/navigation/MainNavigation';
 import {Provider} from 'react-redux';
 import {store} from './src/redux/store';
+import {pageLinking} from './src/utils/Linking';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -16,7 +17,7 @@ function App(): React.JSX.Element {
 
   return (
     <Provider store={store}>
-      <NavigationContainer>
+      <NavigationContainer linking={pageLinking}>
         <MainNavigation />
       </NavigationContainer>
     </Provider>

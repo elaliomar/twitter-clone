@@ -6,7 +6,6 @@ import {userServerData} from '../../types/userServerData';
 import {getUserData} from '../../utils/fireStoreUtils';
 import {useSelector} from 'react-redux';
 import CreatingPost from './CreatingPost';
-import {onDisplayNotification} from '../../utils/localNotification';
 
 const Profile = () => {
   const [selectedImage, setSelectedImage] = useState<imagePath>(null);

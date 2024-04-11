@@ -1,12 +1,9 @@
 import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import {TweetData} from '../../types/tweetTypes';
 import {useNavigation} from '@react-navigation/native';
 import {TabStackParamList} from '../../types/tabTypes';
 import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
-import EvilIcons from 'react-native-vector-icons/EvilIcons';
-import {onDisplayNotification} from '../../utils/localNotification';
 import TweetFooter from './TweetFooter';
 
 const Tweet = ({id, username, image_url, content, date}: TweetData) => {
@@ -38,16 +35,9 @@ const Tweet = ({id, username, image_url, content, date}: TweetData) => {
             <Text style={styles.time}> · {date}</Text>
           </View>
           <Text style={styles.content}>{content}</Text>
-          <View style={styles.footer}>
-            <Pressable>
-              <Icon name="share" size={20} color="gray" />
-            </Pressable>
-            <Pressable>
-              <Icon name="retweet" size={20} color="gray" />
-            </Pressable>
-          </View>
         </View>
       </View>
+      <TweetFooter />
     </Pressable>
   );
 };
@@ -58,8 +48,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     padding: 10,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: 'lightgrey',
+
     backgroundColor: '#fff',
   },
   imageStyle: {
@@ -86,12 +75,5 @@ const styles = StyleSheet.create({
   time: {
     color: 'gray',
     marginLeft: 5,
-  },
-  footer: {
-    flexDirection: 'row',
-    marginTop: 10,
-    marginBottom: 5,
-    justifyContent: 'space-around',
-    alignItems: 'center',
   },
 });

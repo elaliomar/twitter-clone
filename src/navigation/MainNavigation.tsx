@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from '../screens/LoginScreen';
 import SignUpScreen from '../screens/SignUpScreen';
@@ -11,10 +11,12 @@ const MainNavigation = () => {
   const auth = useSelector((state: any) => state.auth.userId);
   return (
     <>
-      {auth ? (
+      {!!auth ? (
         <DrawerNavigation />
       ) : (
-        <UnAuthStack.Navigator screenOptions={{headerShown: false}}>
+        <UnAuthStack.Navigator
+          screenOptions={{headerShown: false}}
+          initialRouteName="LogIn">
           <UnAuthStack.Screen name="LogIn" component={LoginScreen} />
           <UnAuthStack.Screen name="SignUp" component={SignUpScreen} />
         </UnAuthStack.Navigator>

@@ -1,12 +1,7 @@
-import {View, Text} from 'react-native';
-import React from 'react';
+import Help from '../components/molecules/Help';
 
 const HelpCenterScreen = () => {
-  return (
-    <View>
-      <Text>HelpCenterScreen</Text>
-    </View>
-  );
+  return <Help />;
 };
 
 export default HelpCenterScreen;

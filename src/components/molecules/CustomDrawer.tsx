@@ -44,7 +44,6 @@ const CustomDrawer = (props: DrawerContentComponentProps) => {
     try {
       await auth().signOut();
       dispatch(signOut());
-      navigation.navigate('LogIn');
     } catch (error) {
       console.error('Error signing out: ', error);
     }
@@ -74,16 +73,6 @@ const CustomDrawer = (props: DrawerContentComponentProps) => {
         </View>
       </DrawerContentScrollView>
       <View style={styles.footerView}>
-        <Pressable style={styles.pressebaleView}>
-          <View style={styles.shareView}>
-            {Platform.OS === 'ios' ? (
-              <EvilIcons name="share-apple" size={25} />
-            ) : (
-              <EvilIcons name="share-google" size={25} />
-            )}
-            <Text style={styles.shareText}>Share the app</Text>
-          </View>
-        </Pressable>
         <Pressable style={styles.pressebaleView} onPress={handleSignOut}>
           <View style={styles.shareView}>
             <Ionicons name="exit-outline" size={23} />

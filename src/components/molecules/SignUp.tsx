@@ -1,5 +1,13 @@
-import React from 'react';
-import {View, Text, Image, Pressable, StyleSheet, Alert} from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  Image,
+  Pressable,
+  StyleSheet,
+  Alert,
+  ActivityIndicator,
+} from 'react-native';
 import CustomInputText from '../atoms/CustomInputText';
 import CustomButton from '../atoms/CustomButton';
 import Animated, {FadeInDown, FadeInUp} from 'react-native-reanimated';
@@ -27,6 +35,7 @@ const validationSchema = yup.object().shape({
 
 export default function SignUp() {
   const navigation = useNavigation<SignScreenNavigationProp>();
+  const [isLoading, setIsLoading] = useState(false);
   const handleFormSubmit = async (
     values: {username: string; email: string; password: string},
     formikHelpers: FormikHelpers<{
@@ -35,6 +44,7 @@ export default function SignUp() {
       password: string;
     }>,
   ) => {
+    setIsLoading(true);
     try {
       const userCredential = await auth().createUserWithEmailAndPassword(
         values.email,
@@ -51,9 +61,10 @@ export default function SignUp() {
       navigation.navigate('LogIn');
     } catch (error) {
       handleAuthError(error);
+    } finally {
+      setIsLoading(false);
+      formikHelpers.resetForm();
     }
-
-    formikHelpers.resetForm();
   };
 
   return (
@@ -124,7 +135,12 @@ export default function SignUp() {
                 <Text style={styles.error}>{errors.password}</Text>
               )}
             </Animated.View>
-            <CustomButton onPress={() => handleSubmit()} title="SignUp" />
+            {isLoading ? (
+              <ActivityIndicator size="large" color="#00b0f0" />
+            ) : (
+              <CustomButton onPress={() => handleSubmit()} title="SignUp" />
+            )}
+
             <Animated.View
               entering={FadeInDown.delay(600).duration(1000).springify()}
               style={styles.loginTextContainer}>
