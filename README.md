@@ -24,6 +24,7 @@ Key features implemented within the app include:
 - **Authentication**: Integrated through Firebase, offering users the option to sign up and log in securely.
 - **Drawer and Bottom Tab Navigation**: Incorporates multiple stacks to enrich navigation and user interaction.
 - **Profiling**: Utilizes Flipper to monitor and optimize application performance.
+![profiling](https://github.com/elaliomar/twitter-clone/assets/95617328/9998c026-7bc9-454d-acc2-4ff4423ba40e)
 
 
 # Installation
