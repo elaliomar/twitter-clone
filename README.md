@@ -1,79 +1,92 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+# Twitter Clone Usign Reatc Native CLI
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+# Project Description
 
-## Step 1: Start the Metro Server
+This application serves as a Twitter clone, providing users with the capability to register an account and log in to access its features. Upon successful login, users are presented with a drawer navigation that includes two primary pages: Home and Help Center.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+The Home page directs users to a bottom tab navigator housing three distinct screens:
+- **Feeds**: Here, users can browse through tweets posted by others within the app. Selecting a tweet takes them to a detailed view.
+- **Tweet Details**: This page presents comprehensive information about the tweet, such as the username of the poster, the posting date, and other relevant metadata.
+- **Profile**: On this screen, the authenticated user can view their personal data, select a profile picture, and post new tweets.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+The application is crafted using various frameworks and technologies:
+- **React Native CLI**: Employed as the cross-platform mobile framework to build the app for both Android and iOS devices.
+- **Redux Toolkit**: Utilized for efficient state management throughout the app.
+- **MySQL and PHP**: These form the backbone of the API, managing data transactions and server-side logic.
 
-```bash
-# using npm
-npm start
+Key features implemented within the app include:
+- **Local Notifications**: Activated when users interact with tweet icons, such as liking, retweeting, or saving.
+- **Deep Linking**: Enables users to share the application link with friends, helping to expand the community.
+- **Profile Settings**: Allows users to choose an image from their device and set it as their account's profile picture.
+- **Infinite Scrolling, Pagination, and Pull-to-Refresh**: Enhances user experience by providing seamless content browsing and ensuring users see the latest content updates.
+- **Device-Specific Experience**: The drawer displays the type of device in use (Android or iOS), tailoring the experience accordingly.
+- **Authentication**: Integrated through Firebase, offering users the option to sign up and log in securely.
+- **Drawer and Bottom Tab Navigation**: Incorporates multiple stacks to enrich navigation and user interaction.
+- **Profiling**: Utilizes Flipper to monitor and optimize application performance.
 
-# OR using Yarn
-yarn start
-```
 
-## Step 2: Start your Application
+# Installation
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+To install this project, run the following commands in your terminal:
 
-### For Android
+```sh
+# Clone the repository
+git clone repository url
 
-```bash
-# using npm
-npm run android
+# Navigate to the project directory
+cd [ProjectName]
 
-# OR using Yarn
-yarn android
-```
+# Open the project in Visual Studio Code (Optional)
+code .
 
-### For iOS
+# Install dependencies
+npm install
 
-```bash
-# using npm
-npm run ios
+# Start the application on Android
+npx react-native run-android
 
-# OR using Yarn
-yarn ios
-```
+# Or start the application on iOS
+npx react-native run-ios
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+# Usage
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+Once the application is up and running on your device, follow these steps to utilize its features:
 
-## Step 3: Modifying your App
+1. **Open the App**: Start the application on your device or emulator.
 
-Now that you have successfully run the app, let's modify it.
+2. **Register an Account**: If you are a new user, navigate to the sign-up screen from the initial screen, enter the required information to create an account.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+3. **Log In**: If you have an existing account, go to the login screen, input your credentials, and log in to access the main features of the app.
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+4. **Explore the App**
 
-## Congratulations! :tada:
+5. **Sign Out**: When you're ready to exit the app, you can sign out from the Profile page by pressing the 'Sign Out' button.
 
-You've successfully run and modified your React Native App. :partying_face:
+# Contributing
 
-### Now what?
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+If you have a suggestion that would make this better, please fork the repository and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
 
-# Troubleshooting
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+# License
 
-# Learn More
+Distributed under the MIT License. See `LICENSE` for more information.
 
-To learn more about React Native, take a look at the following resources:
+# Credits
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+This project would not have been possible without the contribution of:
+
+- Eurisko Mobility
+
+
+Special thanks to everyone who has contributed to the development and maintenance of the project, as well as to the open-source software used in this application.
+
+
