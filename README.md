@@ -48,6 +48,7 @@ npx react-native run-android
 
 # Or start the application on iOS
 npx react-native run-ios
+```
 
 # Usage
 
@@ -88,5 +89,7 @@ This project would not have been possible without the contribution of:
 
 
 Special thanks to everyone who has contributed to the development and maintenance of the project, as well as to the open-source software used in this application.
+
+
 
 
